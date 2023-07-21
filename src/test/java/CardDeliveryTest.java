@@ -18,14 +18,14 @@ public class CardDeliveryTest {
         // определение текущей даты с отступом в 3 дня;
         var Data = new Date();
         var currentDay = Data.getDate();
-        var currentMonth = Data.getMonth()+1;
+        var currentMonth = Data.getMonth() + 1;
         var newDay = currentDay + 3;
         if (newDay > 31) {      // переход на следующий месяц с учетом 3-х дневного срока
             newDay = 05;
             currentMonth++;
         }
-        if (currentMonth>12){
-            currentMonth=01;
+        if (currentMonth > 12) {
+            currentMonth = 01;
 
         }
 
@@ -33,7 +33,7 @@ public class CardDeliveryTest {
         SelenideElement form = $(".form");
         form.$("[data-test-id=city] input").setValue("Самара");
         $(".menu").click();
-        form.$("[data-test-id=date] input").setValue(newDay+"."+currentMonth+".2023");
+        form.$("[data-test-id=date] input").setValue(newDay + "." + currentMonth + ".2023");
         form.$("[data-test-id=name] input").setValue("Петров Иван");
         form.$("[data-test-id=phone] input").setValue("+79176666666");
         form.$("[data-test-id=agreement]").click();
